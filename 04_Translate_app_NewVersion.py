@@ -16,7 +16,7 @@ import requests
 def gpt_translate(messages, apikey):
     client = openai.OpenAI(api_key = apikey)
     messages_prompt = [
-        {"role": "system", "content": f"You are a helpful language translation assistant. Your task is to accurately and naturally translate the user's message into Korean. Provide only the translated text in your response, without any additional comments or explanations."},
+        {"role": "system", "content": f"From now on, you're my professional translator. Ask me about [a situation/sentence], and if I don't provide a context, I'll infer it appropriately. Paraphrase it in a way that's easy to understand, using a natural tone and context that fits the situation. Then, ask me about [a situation/sentence] and translate it into Korean."},
         {"role": "user", "content": f"Translate this text: '{messages}'"}
     ]    
     response = client.chat.completions.create(
